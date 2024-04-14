@@ -1,0 +1,82 @@
+:root {
+  --primary-1: #e2e539;
+  --primary-2: #e9ec6a;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  margin: 0 auto;
+  text-align: center;
+  flex-basis: 40%;
+}
+
+.window {
+  margin: 0 auto 1rem;
+}
+.window img {
+  width: 200px;
+  height: 400px;
+}
+.btn {
+  cursor: pointer;
+  background-color: rgb(216, 214, 214);
+  color: white;
+  border-color: transparent;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  border-radius: 3px;
+  transition: 0.5s;
+}
+.btn:hover {
+  background-color: var(--primary-2);
+}
+.gallery {
+  flex-basis: 60%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(139px, 1fr));
+  align-items: center;
+  justify-items: center;
+}
+.img {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+.current-image {
+  width: 100px;
+  height: 100px;
+  transition: 0.5s;
+}
+
+.image-holder {
+  width: 120px;
+  height: 120px;
+}
+
+@media (max-width: 767px) {
+  main {
+    flex-direction: column;
+  }
+  .img {
+    width: 60px;
+    height: 60px;
+    margin: 0.2rem;
+  }
+  .image-holder {
+    width: 70px;
+    height: 70px;
+  }
+  .current-image {
+    width: 70px;
+    height: 70px;
+  }
+  .gallery {
+    margin-top: 1.5rem;
+    width: 80%;
+  }
+}
