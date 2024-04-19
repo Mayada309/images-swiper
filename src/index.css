@@ -1,80 +1,135 @@
+/* || Reset */
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+}
+
+/* || Variables */
 :root {
+  /* COLORS */
   --primary-1: #e2e539;
   --primary-2: #e9ec6a;
+  --btn-bg: #d8d6d6;
+  --black: #222;
+  --white: #fff;
+
+  /* BOX SHADOW */
+  --shadow-1: 0 1px 3px 0 rgba(0 0 0 / 10%), 0 1px 2px 0 rgba(0 0 0 / 6%);
+  --shadow-2: 0 4px 6px -1px rgba(0 0 0 / 10%), 0 2px 4px -1px rgba(0 0 0 / 6%);
+  --shadow-3: 0 10px 15px -3px rgba(0 0 0 / 10%),
+    0 4px 6px -2px rgba(0 0 0 / 5%);
+  --shadow-4: 0 20px 25px -5px rgba(0 0 0 /10%),
+    0 10px 10px -5px rgba(0 0 0 / 4%);
 }
 
-main {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.container {
-  margin: 0 auto;
-  text-align: center;
-  flex-basis: 40%;
-}
-
-.window {
-  margin: 0 auto 1rem;
-}
-.window img {
-  width: 200px;
-  height: 400px;
-}
+/* || Buttons */
 .btn {
   cursor: pointer;
-  background-color: rgb(216, 214, 214);
-  color: white;
   border-color: transparent;
-  font-size: 1.5rem;
-  margin-left: 0.5rem;
   border-radius: 3px;
-  transition: 0.5s;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--btn-bg);
 }
+
 .btn:hover {
   background-color: var(--primary-2);
 }
+
+/* Project CSS */
+
+main {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* || Swiper */
+.swiper {
+  padding: 0.5rem;
+  text-align: center;
+  flex-basis: 30%;
+  box-shadow: var(--shadow-2);
+  transition: 0.3s;
+}
+
+.swiper:hover {
+  box-shadow: var(--shadow-3);
+}
+
+.swiper-window {
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 0.5rem;
+}
+
+.swiper-img {
+  width: 225px;
+  height: 400px;
+}
+
+.swiper-btn {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  transition: 0.5s;
+}
+
+/* || Gallery */
 .gallery {
   flex-basis: 60%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(139px, 1fr));
-  align-items: center;
-  justify-items: center;
+  place-items: center;
 }
-.img {
-  width: 80px;
+
+.gallery-btn {
+  background-color: transparent;
+  padding: 0;
+  height: 100px;
+}
+
+.gallery-btn:hover {
+  background-color: transparent;
+}
+
+.gallery-img {
   height: 80px;
+  width: 80px;
   cursor: pointer;
 }
-.current-image {
+
+.gallery-current {
   width: 100px;
   height: 100px;
   transition: 0.5s;
 }
 
-.image-holder {
-  width: 120px;
-  height: 120px;
-}
+/* small screens */
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   main {
     flex-direction: column;
   }
-  .img {
+
+  .gallery-img {
     width: 60px;
     height: 60px;
     margin: 0.2rem;
   }
-  .image-holder {
+
+  .gallery-btn {
     width: 70px;
     height: 70px;
   }
-  .current-image {
+
+  .gallery-current {
     width: 70px;
     height: 70px;
   }
+
   .gallery {
     margin-top: 1.5rem;
     width: 80%;

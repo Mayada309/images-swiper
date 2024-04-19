@@ -1,5 +1,6 @@
-import { useState } from "react";
-import "./App.css";
+import { useCallback, useState } from "react";
+import Gallery from "./components/Gallery";
+import Swiper from "./components/Swiper";
 
 const data = [
   {
@@ -32,48 +33,22 @@ const data = [
   },
 ];
 
-
 function App() {
   const [currentImage, setCurrentImage] = useState(0);
-
-  const next = () => {
-    setCurrentImage((oldValue) => (oldValue + 1) % data.length);
-  };
-  const prev = () => {
-    setCurrentImage((oldValue) => (oldValue - 1 + data.length) % data.length);
-  };
 
   return (
     <>
       <main>
-        <div className="container">
-          <div className="window">
-            <img src={data[currentImage].url} alt="image" />
-          </div>
-          <button onClick={() => prev()} className="btn">
-            &lt;
-          </button>
-          <button onClick={() => next()} className="btn">
-            &gt;
-          </button>
-        </div>
-
-        <div className="gallery">
-          {data.map((image) => {
-            return (
-              <div className="image-holder" key={image.id}>
-                <img
-                  src={image.url}
-                  alt=""
-                  className={
-                    image.id === currentImage ? "current-image" : "img"
-                  }
-                  onClick={() => setCurrentImage(image.id)}
-                />
-              </div>
-            );
-          })}
-        </div>
+        <Swiper
+          images={data}
+          currentImage={currentImage}
+          setCurrentImage={setCurrentImage}
+        />
+        <Gallery
+          images={data}
+          currentImage={currentImage}
+          setCurrentImage={setCurrentImage}
+        />
       </main>
     </>
   );
